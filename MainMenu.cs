@@ -60,7 +60,7 @@ namespace CMDgame
         static void MenuStart()
         {
             BTS.Clear();
-            Gameplay.CharacterName();
+            Gameplay.Continue1();
         }
 
         static void Menulearn()

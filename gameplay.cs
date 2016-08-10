@@ -4,33 +4,40 @@ namespace CMDgame
 {
     class Gameplay
     {
-        public static string CharacterName()
+        static string CharacterName()
         {
+
             Console.Write("What is the name of your character?: ");
             string Cname = Console.ReadLine();
-            YesNoCharacter();
             return (Cname);
         }
 
-        public static void YesNoCharacter()
+        public static void Continue1()
         {
             BTS.Clear();
-            Console.WriteLine("Are you sure you want to use the name " + CharacterName() + "Yes or No?");
-            string YN = Console.ReadLine();
-            if (YN.ToLower() == "yes")
+            string name = CharacterName();
+            while(true)
             {
-                Adventure();
+                Console.WriteLine("Are you sure you want to use the name: " + name + "?" + "[Yes or No?] ");
+                string YN = Console.ReadLine();
+                if (YN.ToLower() == "yes")
+                {
+                    Adventure();
+                    break;
+                }
+                else if (YN.ToLower() == "no")
+                {
+                    Continue1();
+                    break;
+                }
             }
-            else if (YN.ToLower() == "no")
-            {
-                CharacterName();
-            }
-            YesNoCharacter();
         }
 
         public static void Adventure()
         {
-            
+            Console.WriteLine("Test complete");
+            Console.ReadLine();
+            Environment.Exit(0);
         }
     }
 }
