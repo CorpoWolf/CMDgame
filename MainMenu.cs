@@ -4,6 +4,10 @@ namespace CMDgame
 {
    class MainMenu
     {
+        static void Main(string[] args)
+        {
+            TheMenu();
+        }
         public static void TheMenu()
         {
             IntroMenu();
