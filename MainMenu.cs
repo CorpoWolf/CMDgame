@@ -23,11 +23,13 @@ namespace CMDgame
             Console.Clear();
             string R1 = "start";
             string R2 = "learn c#";
+            string R5 = "settings";
             string R3 = "about";
             string R4 = "quit";
 
             Console.WriteLine(R1);
             Console.WriteLine(R2);
+            Console.WriteLine(R5);
             Console.WriteLine(R3);
             Console.WriteLine(R4);
 
@@ -39,6 +41,10 @@ namespace CMDgame
             if (MenuResponse.ToLower() == R1)
             {
                 MenuStart();
+            }
+            else if (MenuResponse.ToLower() == R5)
+            {
+                SettingMenu();
             }
             else if (MenuResponse.ToLower() == R2)
             {
@@ -68,6 +74,19 @@ namespace CMDgame
             BTS.Clear();
             Console.WriteLine("C# Notes: bit.ly/JeeCsharp");
             Console.WriteLine("C# tutorials: bit.ly/JeeCsharpPlay");
+            BTS.BackMM();
+        }
+        static void SettingMenu()
+        {
+            BTS.Clear();
+            Console.WriteLine("Text Color");
+            BTS.Gap();
+            Console.Write(": ");
+            string SettingR = Console.ReadLine();
+            if (SettingR.ToLower() == "text color")
+            {
+                Settings.Color();
+            }
             BTS.BackMM();
         }
 
