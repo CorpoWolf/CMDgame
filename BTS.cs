@@ -34,6 +34,11 @@ namespace CMDgame
         {
             Console.Clear();
         }
+        public static void Enter()
+        {
+            Gap();
+            Console.Write(": ");
+        }
 
         public static void BackMM()
         {
@@ -41,6 +46,12 @@ namespace CMDgame
             Console.Write("Press Enter to go back");
             BTS.ReWrite();
             MainMenu.MainOptions();
+        }
+        public static void Back()
+        {
+            Gap();
+            Console.Write("Press Enter to go back");
+            BTS.ReWrite();
         }
     }
 }

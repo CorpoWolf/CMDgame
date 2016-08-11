@@ -37,9 +37,7 @@ namespace CMDgame
             Console.WriteLine(R3);
             Console.WriteLine(R4);
 
-            BTS.Gap();
-
-            Console.Write(":");
+            BTS.Enter();
             string MenuResponse = Console.ReadLine();
 
             if (MenuResponse.ToLower() == R1)
@@ -69,7 +67,6 @@ namespace CMDgame
 
         static void MenuStart()
         {
-            BTS.Clear();
             Gameplay.Adventure();
         }
 

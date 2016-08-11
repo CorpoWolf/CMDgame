@@ -4,37 +4,34 @@ namespace CMDgame
 {
     class Gameplay
     {
-        public static void Adventure()
-        {
-            Console.WriteLine("Let us begin " + Continue1()); //Has the program run Continue1() before.
-        }
+        static string CharacterName = Sure1();
 
-        public static string Continue1() 
+        public static string Sure1()
         {
             BTS.Clear();
-            string name = CharacterName(); //Has the program run CharacterName() before.
-            while (true)
+            Console.Write("What name would you like: ");
+            string R = Console.ReadLine();
+            BTS.Clear();
+            System.Console.WriteLine("Are you sure you want to use the name: " + R + "?" + "[Yes or No]");
+            while(true)
             {
-                Console.WriteLine("Are you sure you want to use the name: " + name + "?" + "[Yes or No?] ");
-                string YN = Console.ReadLine();
-                if (YN.ToLower() == "yes")
+                String R2 = Console.ReadLine();
+                if (R2.ToLower() == "yes")
                 {
-                    return name;
+                    return R;
                 }
-                else if (YN.ToLower() == "no")
+                else if (R2.ToLower() == "no")
                 {
-                    Continue1();
-                    return null;
+                    Sure1();
                 }
-                return null;
             }
         }
 
-        static string CharacterName()
+        public static void Adventure()
         {
-            Console.Write("What is the name of your character?: ");
-            string Cname = Console.ReadLine();
-            return (Cname);
+            BTS.Clear();
+            Console.WriteLine("Well hello, " + CharacterName);
+            Console.Read();
         }
     }
 }
