@@ -8,7 +8,7 @@ namespace CMDgame
         {
             while (true)
             {
-                System.Threading.Thread.Sleep(1);
+                System.Threading.Thread.Sleep(7);
                 ConsoleKeyInfo Continue = Console.ReadKey();
                 if (Continue.Key == ConsoleKey.Enter)
                 {
