@@ -39,6 +39,7 @@ namespace CMDgame
 
             BTS.Enter();
             string MenuResponse = Console.ReadLine();
+            MenuResponse = MenuResponse.TrimEnd();
 
             if (MenuResponse.ToLower() == R1)
             {
@@ -94,10 +95,10 @@ namespace CMDgame
         static void MenuAbout()
         {
             BTS.Clear();
-            string Version = "0.2";
+            string Version = "0.10";
             Console.WriteLine("Current version: " + Version);
             Console.WriteLine("Created by Gavin");
-            Console.WriteLine("This is an early development many features don't work");
+            Console.WriteLine("A work in progress");
             BTS.BackMM();
         }
     }

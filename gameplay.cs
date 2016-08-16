@@ -6,14 +6,25 @@ namespace CMDgame
     {
         static string CharacterName = NameCheck();
 
+        public static void Adventure()
+        {
+            BTS.Clear();
+            Console.WriteLine("Well hello, " + CharacterName);
+            BTS.ReWrite();
+            AdventureMenu();
+        }
+
+        /// <summary>
+        /// Name set function, letters only, must be 1 letter
+        /// </summary>
         public static string NameCheck()
         {
             string R = ""; //Creat the string with an empty string value.
 
-            while(true) //Runs until a return is made.
+            while (true) //Runs until a return is made.
             {
                 BTS.Clear();
-                Console.Write("What name would you like: "); 
+                Console.Write("What name would you like: ");
                 R = Console.ReadLine(); //Sets a new value for the R string.
                 if (R.Length > 0) //if more than 0 characters are typed.
                 {
@@ -42,7 +53,7 @@ namespace CMDgame
                                 break; //breaks from this while loop
                             }
                         }
-                        break; //When the foreach is broken out of break out of the main while loop.
+                        break; //breaks out of foreach
                     }
                 }
                 else if (R.Length < 1) //If less than 1 character is typed.
@@ -54,11 +65,43 @@ namespace CMDgame
             }
         }
 
-        public static void Adventure()
+        /// <summary>
+        /// The menu for adventuring
+        /// </summary>
+        public static void AdventureMenu()
         {
-            BTS.Clear();
-            Console.WriteLine("Well hello, " + CharacterName);
-            Console.Read();
+            string R = "";
+
+            while (true)
+            {
+                BTS.Clear();
+                Console.WriteLine("Character");
+                Console.WriteLine("Explore");
+                Console.WriteLine("Quit");
+
+                BTS.Enter();
+                R = Console.ReadLine();
+
+                if (R.ToLower() == "character")
+                {
+                    BTS.Clear();
+                    Console.Write("XP: ");
+                    BTS.Back();
+                    continue;
+                }
+                else if (R.ToLower() == "Explore")
+                {
+                    Console.Write("Nothing here");
+                    BTS.Back();
+                    continue;
+                }
+                else if (R.ToLower() == "quit")
+                {
+                    Environment.Exit(0);
+                }
+                Console.WriteLine("Try again");
+                BTS.ReWrite();
+            }
         }
     }
 }

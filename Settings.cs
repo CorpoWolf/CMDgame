@@ -17,7 +17,7 @@ namespace CMDgame
             }
             catch (FormatException)
             {
-                Console.Write("It has to be a number");
+                Console.Write("It has to be an integer");
                 BTS.ReWrite();
                 Color();
             }
