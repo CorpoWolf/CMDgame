@@ -80,15 +80,7 @@ namespace CMDgame
         }
         static void SettingMenu()
         {
-            BTS.Clear();
-            Console.WriteLine("Text Color");
-            BTS.Gap();
-            Console.Write(": ");
-            string SettingR = Console.ReadLine();
-            if (SettingR.ToLower() == "text color")
-            {
-                Settings.Color();
-            }
+            Settings.Color();
             BTS.BackMM();
         }
 

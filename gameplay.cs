@@ -5,6 +5,8 @@ namespace CMDgame
     class Gameplay
     {
         static string CharacterName = NameCheck();
+        static int CharacterLVL = 0;
+        static int CharacterXP = 0;
 
         public static void Adventure()
         {
@@ -85,14 +87,29 @@ namespace CMDgame
                 if (R.ToLower() == "character")
                 {
                     BTS.Clear();
-                    Console.Write("XP: ");
+
+                    while(true)
+                    {
+                        if (CharacterXP >= 100)
+                        {
+                            CharacterLVL++;
+                            for (int A = 1; A <= 100; A++)
+                            {
+                                CharacterXP--;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    Console.Write("level: "+ CharacterLVL + " XP: "+ CharacterXP);
                     BTS.Back();
                     continue;
                 }
-                else if (R.ToLower() == "Explore")
+                else if (R.ToLower() == "explore")
                 {
-                    Console.Write("Nothing here");
-                    BTS.Back();
+                    Explore();
                     continue;
                 }
                 else if (R.ToLower() == "quit")
@@ -102,6 +119,61 @@ namespace CMDgame
                 Console.WriteLine("Try again");
                 BTS.ReWrite();
             }
+        }
+        /// <summary>
+        /// The messages for beginning your adventure.
+        /// </summary>
+        static void BEx()
+        {
+            BTS.Clear();
+            Console.WriteLine("Welcome to the adventure " + CharacterName + ".");
+            BTS.ReWrite();
+            Console.WriteLine("You're adventure is that of a C# programmer, because no one else could give me a real idea for one.");
+            BTS.ReWrite();
+            Console.WriteLine("Now the adventure begins!");
+            System.Threading.Thread.Sleep(800);
+            Console.WriteLine("Press enter once more to begin");
+        }
+
+        /// <summary>
+        /// The adventure
+        /// </summary>
+        static void Explore()
+        {
+            while ((CharacterLVL <= 0) || (CharacterXP <= 0))
+            {
+                BEx();
+                BTS.ReWrite();
+                break;
+            }
+            BTS.Clear();
+
+            ConsoleColor B = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Press ESC to go back!");
+            Console.ForegroundColor = B;
+            while (true)
+            {
+                Console.WriteLine("Press space to gain 10 XP!");
+                ConsoleKeyInfo Waka = Console.ReadKey();
+                if (Waka.Key == ConsoleKey.Spacebar)
+                {
+                    for (int A = 1; A <= 10; A++)
+                    {
+                        CharacterXP++;
+                    }
+                }
+                else if (Waka.Key == ConsoleKey.Escape)
+                {
+                    AdventureMenu();
+                }
+                else
+                {
+                    Console.WriteLine("M8, you pressed the wrong button.");
+                    BTS.ReWrite();
+                }
+            }
+
         }
     }
 }
